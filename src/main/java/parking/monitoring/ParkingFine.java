@@ -1,18 +1,26 @@
 package parking.monitoring;
 
-public class NewCarScan {
+import java.time.LocalDateTime;
+
+public class ParkingFine {
 	
 	public long carNumber;
 	public String parkingZone;
+	public LocalDateTime date;
 	
-	public NewCarScan(long carNumber, String parkingZone) {
+	public ParkingFine(long carNumber, String parkingZone, LocalDateTime date) {
 		this.carNumber = carNumber;
 		this.parkingZone = parkingZone;
+		this.date = date;
+	}
+	
+	public ParkingFine() {
+		
 	}
 
 	@Override
 	public String toString() {
-		return "NewCarScan [carNumber=" + carNumber + ", parkingZone=" + parkingZone + "]";
+		return "ParkingFine [carNumber=" + carNumber + ", parkingZone=" + parkingZone + ", date=" + date + "]";
 	}
 
 	@Override
@@ -20,6 +28,7 @@ public class NewCarScan {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (int) (carNumber ^ (carNumber >>> 32));
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((parkingZone == null) ? 0 : parkingZone.hashCode());
 		return result;
 	}
@@ -32,8 +41,13 @@ public class NewCarScan {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		NewCarScan other = (NewCarScan) obj;
+		ParkingFine other = (ParkingFine) obj;
 		if (carNumber != other.carNumber)
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
 			return false;
 		if (parkingZone == null) {
 			if (other.parkingZone != null)
