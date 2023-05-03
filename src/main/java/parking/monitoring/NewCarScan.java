@@ -9,6 +9,10 @@ public class NewCarScan {
 		this.carNumber = carNumber;
 		this.parkingZone = parkingZone;
 	}
+	
+	public NewCarScan() {
+		
+	}
 
 	@Override
 	public String toString() {
