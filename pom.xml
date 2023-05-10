@@ -3,4 +3,13 @@
   <groupId>parking-monitoring</groupId>
   <artifactId>parking-monitoring-dto</artifactId>
   <version>0.0.1</version>
+  
+  <dependencies>
+	<dependency>
+    	<groupId>jakarta.validation</groupId>
+    	<artifactId>jakarta.validation-api</artifactId>
+    	<version>3.0.0</version>
+	</dependency>
+</dependencies>
+
 </project>
