@@ -1,11 +1,15 @@
 package parking.monitoring.dto;
 
+import jakarta.validation.constraints.NotNull;
+
 public class CarDto {
 
-	public long carNumber;
-	public long driverId;
+	@NotNull(message = "car number cannot be null")
+	public Long carNumber;
+	@NotNull(message = "driver id cannot be null")
+	public Long driverId;
 
-	public CarDto(long carNumber, long driverId) {
+	public CarDto(Long carNumber, Long driverId) {
 		this.carNumber = carNumber;
 		this.driverId = driverId;
 	}
