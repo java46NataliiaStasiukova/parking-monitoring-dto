@@ -7,8 +7,8 @@ import jakarta.validation.constraints.Pattern;
 
 public class DriverDto {
 
-	//@NotNull(message = "id cannot be null")
-	public long id;
+	@NotNull(message = "id cannot be null")
+	public Long id;
 	@NotEmpty(message = "name cannot be empty")
 	public String name;
 	@Email(message = "should be email format") @NotEmpty(message = "email cannot be empty")

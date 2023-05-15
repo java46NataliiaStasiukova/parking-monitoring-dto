@@ -4,10 +4,10 @@ import jakarta.validation.constraints.NotNull;
 
 public class CarDto {
 
-	//@NotNull(message = "car number cannot be null")
-	public long carNumber;
-	//@NotNull(message = "driver id cannot be null")
-	public long driverId;
+	@NotNull(message = "car number cannot be null")
+	public Long carNumber;
+	@NotNull(message = "driver id cannot be null")
+	public Long driverId;
 
 	public CarDto(long carNumber, long driverId) {
 		this.carNumber = carNumber;

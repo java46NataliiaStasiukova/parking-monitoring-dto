@@ -5,24 +5,24 @@ import jakarta.validation.constraints.Pattern;
 
 public class ReportDto {
 
-	//@NotNull(message = "car number cannot be null")
-	public long carNumber;
-	//@NotNull(message = "driver number cannot be null")
-	public long driverNumber;
+	@NotNull(message = "car number cannot be null")
+	public Long carNumber;
+	@NotNull(message = "driver number cannot be null")
+	public Long driverId;
 	@Pattern(regexp = "1|2|3", message = "should be either: 1, 2, 3")
 	public String parkingZone;
 	@Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}", message = "should be format: YYYY-MM-DD-THH:MM")
 	public String date;
 	@NotNull(message = "fine cost cannot be null")
-	public double cost;
+	public Double cost;
 	@Pattern(regexp = "paid|not-paid|canceled", message = "should be either: paid, not-paid or canceled")
 	public String status;
 	@NotNull(message = "driver name cannot be null")
 	public String driverName;
 
-	public ReportDto(long carNumber, long driverNumber, String parkingZone, String date, double cost, String status, String driverName) {
+	public ReportDto(long carNumber, long driverId, String parkingZone, String date, double cost, String status, String driverName) {
 		this.carNumber = carNumber;
-		this.driverNumber = driverNumber;
+		this.driverId = driverId;
 		this.parkingZone = parkingZone;
 		this.date = date;
 		this.cost = cost;
@@ -36,7 +36,7 @@ public class ReportDto {
 
 	@Override
 	public String toString() {
-		return "Report [carNumber=" + carNumber + ", driverId=" + driverNumber + ", parkingZone=" + parkingZone
+		return "Report [carNumber=" + carNumber + ", driverId=" + driverId + ", parkingZone=" + parkingZone
 				+ ", date=" + date + ", cost=" + cost + ", status=" + status + ", driverName=" + driverName + "]";
 	}
 
