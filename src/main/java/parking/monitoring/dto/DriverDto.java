@@ -7,16 +7,16 @@ import jakarta.validation.constraints.Pattern;
 
 public class DriverDto {
 
-	@NotNull(message = "id cannot be null")
-	public Long id;
+	//@NotNull(message = "id cannot be null")
+	public long id;
 	@NotEmpty(message = "name cannot be empty")
 	public String name;
-	@Email(message = "should be email format") 
+	@Email(message = "should be email format") @NotEmpty(message = "email cannot be empty")
 	public String email;
-	@Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "should be ISO format")
+	@Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "should be ISO format") @NotEmpty(message = "birthday cannot be empty")
 	public String birthdate;
 
-	public DriverDto(Long id, String name, String email, String birthdate) {
+	public DriverDto(long id, String name, String email, String birthdate) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
