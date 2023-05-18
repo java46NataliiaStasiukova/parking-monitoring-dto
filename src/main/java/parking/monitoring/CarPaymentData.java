@@ -5,12 +5,14 @@ import java.time.LocalDateTime;
 public class CarPaymentData {
 	
 	public long carNumber;
+	public String parkingZone;
 	public String status;
 	public LocalDateTime paidFrom;
 	public LocalDateTime paidTo;
 	
-	public CarPaymentData(long carNumber, String status, LocalDateTime paidFrom, LocalDateTime paidTo) {
+	public CarPaymentData(long carNumber, String parkingZone, String status, LocalDateTime paidFrom, LocalDateTime paidTo) {
 		this.carNumber = carNumber;
+		this.parkingZone = parkingZone;
 		this.status = status;
 		this.paidFrom = paidFrom;
 		this.paidTo = paidTo;
@@ -22,8 +24,8 @@ public class CarPaymentData {
 
 	@Override
 	public String toString() {
-		return "CarPaymentData [carNumber=" + carNumber + ", status=" + status + ", paidFrom=" + paidFrom + ", paidTo="
-				+ paidTo + "]";
+		return "CarPaymentData [carNumber=" + carNumber + ", parkingZone=" + parkingZone + ", status=" + status
+				+ ", paidFrom=" + paidFrom + ", paidTo=" + paidTo + "]";
 	}
 
 	@Override
@@ -33,6 +35,7 @@ public class CarPaymentData {
 		result = prime * result + (int) (carNumber ^ (carNumber >>> 32));
 		result = prime * result + ((paidFrom == null) ? 0 : paidFrom.hashCode());
 		result = prime * result + ((paidTo == null) ? 0 : paidTo.hashCode());
+		result = prime * result + ((parkingZone == null) ? 0 : parkingZone.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
@@ -58,6 +61,11 @@ public class CarPaymentData {
 				return false;
 		} else if (!paidTo.equals(other.paidTo))
 			return false;
+		if (parkingZone == null) {
+			if (other.parkingZone != null)
+				return false;
+		} else if (!parkingZone.equals(other.parkingZone))
+			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;
@@ -65,6 +73,8 @@ public class CarPaymentData {
 			return false;
 		return true;
 	}
+
+
 
 
 }
