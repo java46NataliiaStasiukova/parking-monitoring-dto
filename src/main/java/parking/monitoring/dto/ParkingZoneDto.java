@@ -1,10 +1,16 @@
 package parking.monitoring.dto;
 
+import jakarta.validation.constraints.NotNull;
+
 public class ParkingZoneDto {
 	
+	@NotNull(message = "parking zone cannot be null")
 	public String parkingZone;
-	public double fineCost;
+	@NotNull(message = "fine cost cannot be null")
+	public Double fineCost;
+	@NotNull(message = "city cannot be null")
 	public String city;
+	@NotNull(message = "address cost cannot be null")
 	public String address;
 	
 	public ParkingZoneDto(String parkingZone, double fineCost, String city, String address) {
